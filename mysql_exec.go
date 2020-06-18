@@ -149,7 +149,7 @@ func (s SQL) Info() string {
 }
 
 func execCommon(source interface{}, sqlStr string, args []interface{}) (int64, error) {
-	if source == nil {
+	if source == blankDB || source == blankDBTx {
 		return 0 ,errors.New("请先初始化数据库")
 	}
 	if Conf.Log {

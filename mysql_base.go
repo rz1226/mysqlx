@@ -29,6 +29,15 @@ query的结果是QueryRes ，本质是一个map，可以批量修改，然后Que
 
 
 */
+
+//做两个连接的空值，用来和是否已经初始化数据库连接做对比
+var blankDB *DB
+var blankDBTx *DBTx
+
+
+
+
+
 type DBConf struct {
 	user   string
 	pass   string
