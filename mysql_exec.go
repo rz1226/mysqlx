@@ -149,6 +149,9 @@ func (s SQL) Info() string {
 }
 
 func execCommon(source interface{}, sqlStr string, args []interface{}) (int64, error) {
+	if source == nil {
+		return 0 ,errors.New("请先初始化数据库")
+	}
 	if Conf.Log {
 		fmt.Println("running.... exec sql = ", sqlStr, "\n args=", args)
 	}
