@@ -150,7 +150,7 @@ func (s SQL) Info() string {
 
 func execCommon(source interface{}, sqlStr string, args []interface{}) (int64, error) {
 	if source == blankDB || source == blankDBTx {
-		return 0 ,errors.New("请先初始化数据库")
+		return 0 ,errors.New("exec 无法进行 ， 请先初始化数据库")
 	}
 	if Conf.Log {
 		fmt.Println("running.... exec sql = ", sqlStr, "\n args=", args)

@@ -100,7 +100,7 @@ func (s SQL) Query(source interface{}) (*QueryRes, error) {
 // 统一处理事务内，和非事务内query
 func queryCommon(source interface{}, sqlStr string, args []interface{}) ([]map[string]interface{}, error) {
 	if source == blankDB || source == blankDBTx {
-		return nil ,errors.New("请先初始化数据库")
+		return nil ,errors.New("query 无法进行， 请先初始化数据库")
 	}
 
 	if Conf.Log {
