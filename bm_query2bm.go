@@ -163,7 +163,7 @@ func structFromQueryRes(sourceData map[string]interface{}, dstStruct interface{}
 	defer func() {
 		if co := recover(); co != nil {
 			errStr := "发生panic, field=" + currentField + ":" + fmt.Sprint(co)
-			if strings.Contains(fmt.Sprint(co), "reflect.Value.NumField on zero Value"){
+			if strings.Contains(fmt.Sprint(co), "reflect.Value.NumField on zero Value") {
 				errStr += " 提示，如果是单个struct数据转化，要先用new(X)初始化，而不是只有var X 声明"
 			}
 

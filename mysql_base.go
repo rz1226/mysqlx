@@ -34,10 +34,6 @@ query的结果是QueryRes ，本质是一个map，可以批量修改，然后Que
 var blankDB *DB
 var blankDBTx *DBTx
 
-
-
-
-
 type DBConf struct {
 	user   string
 	pass   string

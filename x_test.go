@@ -1,18 +1,16 @@
 package mysqlx
 
-import(
-	"testing"
+import (
 	"fmt"
+	"testing"
 )
 
-func Test_batchwhere( t *testing.T ){
+func Test_batchwhere(t *testing.T) {
 
-	data := []string{"a","b","c","d"}
+	data := []string{"a", "b", "c", "d"}
 
-	sql := SQLStr("select * from table where a= 1").AddParams().AndIn("key",data ).OrderBy("key asc").Limit(100).Offset(12)
+	sql := SQLStr("select * from table where a= 1").AddParams().AndIn("key", data).OrderBy("key asc").Limit(100).Offset(12)
 
 	fmt.Println(sql.Info())
 
 }
-
-
