@@ -17,8 +17,8 @@ import (
 创建，一般放在init里初始化，全项目统一使用一个
 var conf = "gechengzhen:123456@tcp(172.16.1.61:3306)/userdata?charset=utf8"
 p := mysqlx.NewDB( conf,3 )
-fmt.Println( p.Query("select * from ytk_car_test limit 1 ", nil ))
-fmt.Println( p.Exec("insert into ytk_car_test set license = '赣B'", nil))
+fmt.Println( p.Query("select * from abc limit 1 ", nil ))
+fmt.Println( p.Exec("insert into abc set license = '赣B'", nil))
 
 
 如果是多sql事务
