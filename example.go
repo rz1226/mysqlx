@@ -11,21 +11,23 @@ type Tai struct {
 }
 
 func testmany() {
-	sqlstr := "select * from tai"
-	var u  []*repo.Tai
-	res := mysqlx.SqlStr(sqlstr).Query(repo.Kit).ToStruct(&u)
-	fmt.Println(res)
-	fmt.Println("data=")
-	for k, v := range u {
-		fmt.Println("id=", k, "  v=", v)
+	sqlstr := "select user_id,phone  from dev_user_tag limit 10"
+	var u  []*UserTag
+	res, err := mysqlx.SQLStr(sqlstr).Query( Kit)
+	if err != nil {
+		fmt.Println("err=", err )
 	}
-	// sql, err := mysqlx.NewBM(&u).ToSqlInsert("tai")
-	// fmt.Println(sql.Info() , err)
-
-	// m := mysqlx.NewBM( &u).ToArray()
-	// fmt.Println("m1===",m)
+	fmt.Println("res=",res )
+	err  = res.ToStruct(&u )
+	if err != nil {
+		fmt.Println("err=", err )
+	}
+	for k, v := range u {
+		fmt.Println("id=", k, "  v=", *v)
+	}
 
 }
+
 func testone() {
 	sqlstr := "select * from tai"
 	u := new(repo.Tai )
